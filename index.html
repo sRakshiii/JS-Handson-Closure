@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Closure</h2>
+    <h3><pre>Q1.
+        function counter(){
+            var counter = 0;
+        
+            function IncreaseCounter() {
+                return counter += 1;
+            };
+        
+            return IncreaseCounter;
+        }
+        
+        var counter = counter();
+        alert(counter());
+        alert(counter());
+        alert(counter());
+        alert(counter());
+        
+    Output : 
+            1
+            2
+            3
+            4
+    </pre></h3>
+    <hr>
+    <h3><pre>Q2. 
+        let count = 0;
+        (function () {
+        if (count === 0) {
+          let count = 1;
+          console.log(count); // What is logged?
+        }
+        console.log(count); // What is logged?
+        })();
+
+    Output : 
+            1
+            0
+    </pre></h3>
+    <hr>
+    <h3><pre>Q3.
+        for (var i = 0; i < 3; i++) {
+            setTimeout(function log() {
+              console.log(i); // What is logged?
+            }, 1000);
+          }
+
+    Output : 
+            3
+            3
+            3      
+    </pre></h3>
+    <hr>
+    <h3><pre>Q4.
+        Write a code to calculate area of a rectangle using inner function. In this case outer function<br> should accept parameter length and inner function should accept parameter breadth.
+
+        function length(l) {
+            function breadth(b) {
+                console.log(l*b);
+            }
+            breadth(6);
+        }
+        length(5);
+    </pre></h3>
+    <hr>
+    <h3><pre>Q5.
+        Take a variable in outer function and create an inner function to increase the counter every time<br> it is called
+
+var i = 0;
+function outerFun(params) {
+    function innerFun(params) {
+        i+=1;
+        console.log(i);
+    }
+    innerFun();
+}
+outerFun();
+outerFun();
+outerFun();
+outerFun();
+    </pre></h3>
+    <hr>
+    <h3><pre>Q6.
+    Print Output
+    var a = 12;
+    (function () {
+       alert(a);
+    })();
+
+    Output :
+            12
+    </pre></h3>
+    <hr>
+    <h3><pre>Q7.
+        var a = 10;
+        var x = (function () {
+            var a = 12;
+            return function () {
+                alert(a);
+            };
+        })();
+        x();
+
+        Output :
+                12
+    </pre></h3>
+    <hr>
+    <h3><pre>Q8.
+
+var globalVar = "xyz";
+(function outerFunc(outerArg) {
+    var outerVar = 'a';
+    
+    (function innerFunc(innerArg) {
+    var innerVar = 'b';
+    
+    console.log(
+        "outerArg = " + outerArg + "\n" +
+        "innerArg = " + innerArg + "\n" +
+        "outerVar = " + outerVar + "\n" +
+        "innerVar = " + innerVar + "\n" +
+        "globalVar = " + globalVar);
+    
+    })(456);
+})(123);
+
+Output : 
+   outerArg = 123
+   innerArg = 456
+   outerVar = a
+   innerVar = b
+   globalVar = xyz
+    </pre></h3>
+    <hr>
+
+</body>
+<script src="./myScript.js"></script>
+</html>
